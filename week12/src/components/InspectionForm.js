@@ -63,7 +63,7 @@ const InspectionForm = () => {
                     <div className="row">
                         <p>
                             <label htmlFor="status">
-                                <input name="status" id="status" type="checkbox" value={status} onChange={(e) => setStatus(e.target.checked)}/>
+                                <input name="status" id="status" type="checkbox" checked={status} onChange={(e) => setStatus(e.target.checked)}/>
                                 <span>All OK?</span>
                             </label>
                         </p>

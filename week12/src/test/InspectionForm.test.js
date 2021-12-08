@@ -1,9 +1,8 @@
 import React from 'react';
 import { createContainer } from './domManipulators';
-import ReactTestUtils from 'react-dom/test-utils';
 import InspectionForm from '../components/InspectionForm';
 
-describe('Counter', () => {
+describe('InspectionForm', () => {
     let render, container;
 
     beforeEach(() => {
@@ -15,10 +14,22 @@ describe('Counter', () => {
     const field = name => form('inspection-form').elements[name];
     const labelFor = formElement => container.querySelector(`label[for="${formElement}"]`);
 
+    const expectFieldValueToBeEmptyString = (fieldName) =>
+        expect(field(fieldName).value).toEqual('');
+
+    const itRendersALabel = (fieldName, value) =>
+        it('renders a label', () => {
+            expect(labelFor(fieldName)).not.toBeNull();
+            expect(labelFor(fieldName).textContent).toEqual(value);
+        });
+
+    const itAssignsAnIdThatMatchesTheLabelId = (fieldName) =>   
+        it('assigns an id that matches the label id', () => {
+            expect(field(fieldName).id).toEqual(fieldName);
+        });
+
     it('renders a form', () => {
-        expect(
-            form('inspection-form')
-        ).not.toBeNull();
+        expect(form('inspection-form')).not.toBeNull();
     });
 
     describe('name field', () => {
@@ -27,15 +38,13 @@ describe('Counter', () => {
             expect(field('name').tagName).toEqual('INPUT');
             expect(field('name').type).toEqual('text');
         });
-        
-        it('renders a label', () => {
-            expect(labelFor('name')).not.toBeNull();
-            expect(labelFor('name').textContent).toEqual('Name');
+
+        it('includes the default value', () => {
+            expectFieldValueToBeEmptyString('name');
         });
 
-        it('assigns an id that matches the label id', () => {
-            expect(field('name').id).toEqual('name');
-        });
+        itRendersALabel('name', 'Name');
+        itAssignsAnIdThatMatchesTheLabelId('name');
     });
 
     describe('status field', () => {
@@ -44,15 +53,17 @@ describe('Counter', () => {
             expect(field('status').tagName).toEqual('INPUT');
             expect(field('status').type).toEqual('checkbox');
         });
+
+        it('includes the default value', () => {
+            expect(field('status').checked).toBeFalsy();
+        });
         
         it('renders a label', () => {
             expect(labelFor('status')).not.toBeNull();
             expect(labelFor('status').querySelector('span').textContent).toEqual('All OK?');
         });
 
-        it('assigns an id that matches the label id', () => {
-            expect(field('status').id).toEqual('status');
-        });
+        itAssignsAnIdThatMatchesTheLabelId('status');
     });
 
     describe('description field', () => {
@@ -60,15 +71,13 @@ describe('Counter', () => {
             expect(field('description')).not.toBeNull();
             expect(field('description').tagName).toEqual('TEXTAREA');
         });
-        
-        it('renders a label', () => {
-            expect(labelFor('description')).not.toBeNull();
-            expect(labelFor('description').textContent).toEqual('Description (optional)');
+
+        it('includes the default value', () => {
+            expectFieldValueToBeEmptyString('description');
         });
 
-        it('assigns an id that matches the label id', () => {
-            expect(field('description').id).toEqual('description');
-        });
+        itRendersALabel('description', 'Description (optional)');
+        itAssignsAnIdThatMatchesTheLabelId('description');
     });
 
     test.todo('renders a submit button');
