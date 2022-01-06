@@ -1,10 +1,11 @@
 Project waarop de testen worden uitgevoerd: [carl-wilhelmson-app](https://github.com/LoukaOctave/carl-wilhelmson-app)
 
 # Logboek
-***Totale tijdsbesteding: 9u30***
+***Totale tijdsbesteding: 11u30***
 
 |Datum|Activiteit|Duur|Opmerking|
 |-|-|-|-|
+| 6-01-2022 | Tests geschreven o.b.v. kennis uit Chapter 2 (blz. 78-86) | 2u00 | TaskForm: label tests laten werken en submit tests schrijven. |
 | 8-12-2021 | Tests geschreven o.b.v. kennis uit Chapter 2 (blz. 59-77) + rest van Chapter 2 gelezen | 3u00 | InspectionForm component getest. Next: nieuwe component met form maken om tests te schrijven voor selects en radio buttons (Takenlijst component?). |
 | 15-11-2021 | Test scenario's aangepast | 0u30 | Value die in de Counter tests wordt gebruikt is aangepast om zo beter de methodes te testen. |
 | 20-10-2021 | Tests geschreven o.b.v. kennis uit Chapter 1 | 1u00 | Counter component getest. |
