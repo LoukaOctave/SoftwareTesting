@@ -1,7 +1,7 @@
 Project waarop de testen worden uitgevoerd: [carl-wilhelmson-app](https://github.com/LoukaOctave/carl-wilhelmson-app)
 
 # Logboek
-***Totale tijdsbesteding: 13u30***
+***Totale tijdsbesteding: 15u30***
 
 |Datum|Activiteit|Duur|Opmerking|
 |-|-|-|-|
